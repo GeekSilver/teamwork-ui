@@ -77,7 +77,7 @@ class Login extends Component{
     document.getElementById("InputEmail1").classList.remove('is-invalid')
     document.getElementById("InputPassword1").classList.remove('is-invalid')
 
-    fetch(`http://localhost:3001/teamwork/v1/employees/login`,{
+    fetch(`https://teamwork-rest-api.herokuapp.com/teamwork/v1/employees/login`,{
       method: 'POST',
       headers:{
         'Content-Type': 'application/json',
