@@ -59,7 +59,7 @@ class Content extends Component {
   fetchFeed = () => {
     this.setState({ isLoading: true}, () => {
       // fetch feed
-      fetch(`http://localhost:3001/teamwork/v1/feed?page=${this.state.feedPage}`)
+      fetch(`https://teamwork-rest-api.herokuapp.com/teamwork/v1/feed?page=${this.state.feedPage}`)
         .then(response => {
           this.setState((prevState) => ({
             ...prevState,
@@ -96,7 +96,7 @@ class Content extends Component {
   fetchArticles = () => {
     this.setState({ isLoading: true}, () => {
       // fetch feed
-      fetch(`http://localhost:3001/teamwork/v1/articles?page=${this.state.articlesPage}`)
+      fetch(`https://teamwork-rest-api.herokuapp.com/teamwork/v1/articles?page=${this.state.articlesPage}`)
         .then(response => {
           this.setState((prevState) => ({
             ...prevState,
@@ -133,7 +133,7 @@ class Content extends Component {
   fetchGifs = () => {
     this.setState({ isLoading: true}, () => {
       // fetch feed
-      fetch(`http://localhost:3001/teamwork/v1/gifs?page=${this.state.gifsPage}`)
+      fetch(`https://teamwork-rest-api.herokuapp.com/teamwork/v1/gifs?page=${this.state.gifsPage}`)
         .then(response => {
           this.setState((prevState) => ({
             ...prevState,
