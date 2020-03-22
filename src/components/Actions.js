@@ -95,7 +95,7 @@ class Actions extends Component {
             <span className="font-weight-bolder">Sign Out</span>
           </button>   
           <br/>
-          <CancelButton type="button" id="cancelBtn" className="hideLogout d-md-none btn bg-primary rounded-pill text-white font-weight-bolder">
+          <CancelButton type="button" id="cancelBtn" className="hideLogout d-md-none btn bg-primary rounded-pill text-white font-weight-bolder mb-4 mb-md-0">
             cancel
           </CancelButton>       
         </StyledLogout>
