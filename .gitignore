@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# prevent maps from being generated in order to deploy the build folder
+GENERATE_SOURCEMAP=false
