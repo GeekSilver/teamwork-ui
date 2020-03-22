@@ -11,7 +11,7 @@ class Comment extends Component{
   componentDidMount(){
     // get article authors username
     if (this.props.comment.employee_id !== undefined){
-      fetch(`http://localhost:3001/teamwork/v1/employees/${this.props.comment.employee_id}`)
+      fetch(`https://teamwork-rest-api.herokuapp.com/teamwork/v1/employees/${this.props.comment.employee_id}`)
         .then(response => {
           return response.json();
         })

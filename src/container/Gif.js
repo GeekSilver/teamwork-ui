@@ -13,7 +13,7 @@ class Gif extends Component {
   }
 
   componentDidMount(){
-    fetch(`http://localhost:3001/teamwork/v1/gifs/${this.props.gif.id}/comments`)
+    fetch(`https://teamwork-rest-api.herokuapp.com/teamwork/v1/gifs/${this.props.gif.id}/comments`)
     .then(response => {
       return response.json();
     })
@@ -23,7 +23,7 @@ class Gif extends Component {
 
     // fetch author details
             // get article authors username
-            fetch(`http://localhost:3001/teamwork/v1/employees/${this.props.gif.employee_id}`)
+            fetch(`${this.props.gif.employee_id}`)
             .then(response => {
               return response.json();
             })

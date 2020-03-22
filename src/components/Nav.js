@@ -22,22 +22,22 @@ const Nav = () => {
   return (
     <StyledNav role="navigation">
       <ul className="nav flex-md-column align-items-center nav-justified text-capitalize font-weight-bolder">
-        <li className="nav-item bg-primary rounded-pill my-md-2">
+        <li className="nav-item bg-primary rounded-pill my-md-2 mb-4 mb-md-0">
           <Link to="/feed" className="nav-link text-white">
-            <img src={doctext} alt="" width="32" height="32"/>
-            <img src={outlet} alt="" width="32" height="32"/>
+            <img src={doctext} alt="" width="25" height="25"/>
+            <img src={outlet} alt="" width="25" height="25"/>
             <StyledSpan>feed</StyledSpan>                  
           </Link>            
         </li>
-        <li className="nav-item bg-primary rounded-pill  my-md-2">
+        <li className="nav-item bg-primary rounded-pill  my-md-2 mb-4 mb-md-0">
           <Link to="/articles" className="nav-link text-white">
-            <img src={doctext} alt=""  width="32" height="32"/>
+            <img src={doctext} alt=""  width="25" height="25"/>
             <StyledSpan>articles</StyledSpan>                
           </Link>
         </li>
-        <li className="nav-item bg-primary rounded-pill  my-md-2">
+        <li className="nav-item bg-primary rounded-pill  my-md-2 mb-4 mb-md-0">
           <Link to="/gifs" className="nav-link text-white">
-            <img src={outlet} alt=""  width="32" height="32"/>
+            <img src={outlet} alt=""  width="25" height="25"/>
             <StyledSpan>gifs</StyledSpan>                
           </Link>
         </li>
