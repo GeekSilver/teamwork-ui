@@ -17,7 +17,7 @@ class AddGif extends Component {
   handleSubmit(event){
     event.preventDefault();
     this.formData.append('gif',document.getElementById('gifInput').files[0])
-    fetch(`http://localhost:3001/teamwork/v1/gifs`,
+    fetch(`https://teamwork-rest-api.herokuapp.com/teamwork/v1/gifs`,
     {
       method: "POST",
       headers: {

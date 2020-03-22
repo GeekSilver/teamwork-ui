@@ -25,7 +25,7 @@ class AddArticle extends Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    fetch(`http://localhost:3001/teamwork/v1/articles`,
+    fetch(`https://teamwork-rest-api.herokuapp.com/teamwork/v1/articles`,
     {
       method: "POST",
       headers: {
