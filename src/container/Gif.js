@@ -23,7 +23,7 @@ class Gif extends Component {
 
     // fetch author details
             // get article authors username
-            fetch(`${this.props.gif.employee_id}`)
+            fetch(`https://teamwork-rest-api.herokuapp.com/teamwork/v1/employees/${this.props.gif.employee_id}`)
             .then(response => {
               return response.json();
             })
