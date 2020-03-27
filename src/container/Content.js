@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import debounce from 'lodash.debounce';
+import Loader from 'react-loader-spinner';
 
 import Article from './Article';
 import Gif from './Gif';
+import "../../node_modules/react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const StyledContent = styled.div`
   @media (min-width: 768px){
@@ -16,6 +18,9 @@ class Content extends Component {
 
   constructor(props){
     super(props);
+    // initialize component as unmounted
+    this._isMounted = false;
+    // state
     this.state = {
       feedPage:1,
       articlesPage: 1,
@@ -33,7 +38,7 @@ class Content extends Component {
       hasMoreGifs: true,
       isGifsLoading: false,
     }
-
+    // debounce fn to update state onscroll to bottom of screen
     window.onscroll = debounce(() => {
       // check if the page has scrolled to the bottom
       if( window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight){
@@ -57,7 +62,7 @@ class Content extends Component {
   }
 
   fetchFeed = () => {
-    this.setState({ isLoading: true}, () => {
+    this.setState({ isFeedLoading: true}, () => {
       // fetch feed
       fetch(`https://teamwork-rest-api.herokuapp.com/teamwork/v1/feed?page=${this.state.feedPage}`)
         .then(response => {
@@ -94,7 +99,7 @@ class Content extends Component {
   }
 
   fetchArticles = () => {
-    this.setState({ isLoading: true}, () => {
+    this.setState({ isArticlesLoading: true}, () => {
       // fetch feed
       fetch(`https://teamwork-rest-api.herokuapp.com/teamwork/v1/articles?page=${this.state.articlesPage}`)
         .then(response => {
@@ -131,7 +136,7 @@ class Content extends Component {
   }
 
   fetchGifs = () => {
-    this.setState({ isLoading: true}, () => {
+    this.setState({ isGifsLoading: true}, () => {
       // fetch feed
       fetch(`https://teamwork-rest-api.herokuapp.com/teamwork/v1/gifs?page=${this.state.gifsPage}`)
         .then(response => {
@@ -168,6 +173,8 @@ class Content extends Component {
   }
 
   componentDidMount(){
+    // mount component before updating state
+    this._isMounted = true;
     // load initial content
     this.fetchFeed();
     this.fetchArticles();
@@ -242,28 +249,31 @@ class Content extends Component {
         {(this.state.isFeedLoading || this.state.isArticlesLoading || this.state.isGifsLoading)
          && 
         <div className="text-center">
-          Loading...
+          <Loader type="TailSpin" color="Blue" height={80} width={80} />
         </div>
         }     
         {(this.props.location.pathname === '/feed') 
         && 
         !this.state.hasMoreFeed ?
           <div className="text-center font-weight-bold">
-            end of content.
+            End of Feed. <br/>
+            Write an Article or post a Gif and let others know what you're upto.
           </div>
         :
         (this.props.location.pathname === '/articles')
         && 
         !this.state.hasMoreArticles ?
           <div className="text-center font-weight-bold">
-            end of content.
+            There are no more Articles. <br/>
+            Let others hear from you by writing an article.
           </div>
         :
         (this.props.location.pathname === '/gifs')
         && 
         !this.state.hasMoreGifs ?
           <div className="text-center font-weight-bold">
-            end of content.
+            There are no more Gifs. <br/>
+            Let others know what you're up to by uploading a gif.
           </div>
         : ''
         }  
