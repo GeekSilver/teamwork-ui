@@ -1,0 +1,4 @@
+/* attempt to fix infinite scroll issue in chrome for android */
+body{
+  -webkit-user-drag: none;  
+}
