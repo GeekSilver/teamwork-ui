@@ -10,11 +10,12 @@ class Article extends Component{
       comments: [],
       author: {}
     }
+    this.API_URL = process.env.REACT_APP_API;
   }
 
 componentDidMount(){
   // get articles comments
-  fetch(`https://teamwork-rest-api.herokuapp.com/teamwork/v1/articles/${this.props.article.id}/comments`)
+  fetch(`${this.API_URL}/articles/${this.props.article.id}/comments`)
   .then(response => {
     return response.json();
   })
@@ -22,7 +23,7 @@ componentDidMount(){
     this.setState({comments: response.data});
   });
         // get article authors username
-        fetch(`https://teamwork-rest-api.herokuapp.com/teamwork/v1/employees/${this.props.article.employee_id}`)
+        fetch(`${this.API_URL}/employees/${this.props.article.employee_id}`)
         .then(response => {
           return response.json();
         })

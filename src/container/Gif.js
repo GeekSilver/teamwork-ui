@@ -10,10 +10,12 @@ class Gif extends Component {
       comments: [],
       author: {},
     }
+    this.API_URL = process.env.REACT_APP_API;
   }
 
+
   componentDidMount(){
-    fetch(`https://teamwork-rest-api.herokuapp.com/teamwork/v1/gifs/${this.props.gif.id}/comments`)
+    fetch(`${this.API_URL}/gifs/${this.props.gif.id}/comments`)
     .then(response => {
       return response.json();
     })
@@ -23,7 +25,7 @@ class Gif extends Component {
 
     // fetch author details
             // get article authors username
-            fetch(`https://teamwork-rest-api.herokuapp.com/teamwork/v1/employees/${this.props.gif.employee_id}`)
+            fetch(`${this.API_URL}/employees/${this.props.gif.employee_id}`)
             .then(response => {
               return response.json();
             })

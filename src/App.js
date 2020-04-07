@@ -8,6 +8,7 @@ import {
 import ls from 'local-storage';
 import 'bootstrap';
 
+
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle';
 import '../node_modules/material-design-icons-iconfont/dist/material-design-icons.css';
@@ -15,7 +16,7 @@ import '../node_modules/material-design-icons-iconfont/dist/material-design-icon
 import Feed from './container/Feed';
 import Login from './container/Login';
 
-
+require('dotenv').config()
 
 
 const PrivateFeedRoute = ({children, ...rest}) => {

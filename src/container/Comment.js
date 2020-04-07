@@ -6,12 +6,13 @@ class Comment extends Component{
     this.state = {
       username: ''
     }
+    this.API_URL = process.env.REACT_APP_API;
   }
 
   componentDidMount(){
     // get article authors username
     if (this.props.comment.employee_id !== undefined){
-      fetch(`https://teamwork-rest-api.herokuapp.com/teamwork/v1/employees/${this.props.comment.employee_id}`)
+      fetch(`${this.API_URL}/employees/${this.props.comment.employee_id}`)
         .then(response => {
           return response.json();
         })
