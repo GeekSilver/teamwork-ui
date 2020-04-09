@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import Comment from './Comment';
 import Author from './Author';
 
+import placeholder from '../assets/placeholder.jpg';
+
 class Gif extends Component {
   constructor(props){
     super(props);
@@ -39,7 +41,7 @@ class Gif extends Component {
       <section id="gif">
       <div id="article">
       <Author author={this.state.author.name} created_at={this.props.gif.created_at} />
-        <img src={this.props.url} className="d-block img-fluid mx-auto" alt="a gif" title="gif"/>
+        <img data-src={this.props.url} src={placeholder} className="d-block img-fluid mx-auto" alt="a gif" title="gif"/>
         <div>
           <span className="my-1 d-flex align-items-center" data-toggle="collapse" data-target={`#gif${this.props.gif.id}`}>
             <i className="material-icons" >

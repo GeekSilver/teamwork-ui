@@ -14,31 +14,11 @@ import '../node_modules/bootstrap/dist/js/bootstrap.bundle';
 import '../node_modules/material-design-icons-iconfont/dist/material-design-icons.css';
 
 import Feed from './container/Feed';
+import Articles from './container/Articles';
+import Gifs from './container/Gifs';
 import Login from './container/Login';
 
 require('dotenv').config()
-
-
-const PrivateFeedRoute = ({children, ...rest}) => {
-  return (
-    <Route
-    {...rest}
-    render = {(props) => 
-      ls.get('currUser') !==  null  ?
-      (
-        <Feed {...props}/>
-      ) :
-      (
-        <Redirect
-        to={{
-          pathname:"/"
-        }} />
-      ) 
-    }
-    >
-    </Route>
-  )
-}
 
 
 class App extends Component {
@@ -54,10 +34,9 @@ class App extends Component {
                 ? <Redirect to={{pathname:"/feed"}}/>  :  <Login {...props}/>
               }>  
             </Route>
-
-            <PrivateFeedRoute path="/feed" />
-            <PrivateFeedRoute path="/articles" />
-            <PrivateFeedRoute path="/gifs" />
+            <Route path='/feed' component={Feed} />
+            <Route path='/articles' component={Articles} />
+            <Route path='/gifs' component={Gifs} />
             
           </Switch>
 

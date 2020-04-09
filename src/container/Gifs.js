@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import LeftSidebar from '../components/LeftSidebar';
-import RightSidebar from '../components/FeedRightSidebar';
+import RightSidebar from '../components/GifsRightSidebar';
 import AddArticle from './AddArticle';
 import AddGif from './AddGif';
 
