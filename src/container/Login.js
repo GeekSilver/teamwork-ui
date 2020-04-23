@@ -51,6 +51,7 @@ class Login extends Component{
       email: '',
       password: '',
     };
+    this.API_URL = process.env.REACT_APP_API;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -77,7 +78,7 @@ class Login extends Component{
     document.getElementById("InputEmail1").classList.remove('is-invalid')
     document.getElementById("InputPassword1").classList.remove('is-invalid')
 
-    fetch(`https://teamwork-rest-api.herokuapp.com/teamwork/v1/employees/login`,{
+    fetch(`${this.API_URL}/employees/login`,{
       method: 'POST',
       headers:{
         'Content-Type': 'application/json',
